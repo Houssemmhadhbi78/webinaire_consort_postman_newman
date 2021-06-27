@@ -1,0 +1,4 @@
+newman run TestAPI_Datas.postman_collection.json -d recherche.csv -e QA.postman_environment.json 
+												-r cli,htmlextra --reporter-htmlextra-export rapportExecution27062021.html
+
+Nom du plugin Nodejs dans Jenkins : nodejs

@@ -1,0 +1,87 @@
+{
+	"info": {
+		"_postman_id": "8167971d-0df2-483b-816b-2329ea7bf41f",
+		"name": "TestAPI_Datas",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Recherche",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"//Contrôler le temps de la réponse\r",
+							"pm.test(\"Response time is less than 200ms\", function () {\r",
+							"    pm.expect(pm.response.responseTime).to.be.below(200);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{url}}/complete/search?q=toto&cp=0&client=desktop-gws-wiz-on-focus-serp&xssi=t&gs_ri=gws-wiz&hl=fr&authuser=0&pq={{recherche}}&psi=dX_YYMyzLY2eUNDYsYAG.1624801144776&ofp=EAE&dpr=1",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"complete",
+						"search"
+					],
+					"query": [
+						{
+							"key": "q",
+							"value": "toto"
+						},
+						{
+							"key": "cp",
+							"value": "0"
+						},
+						{
+							"key": "client",
+							"value": "desktop-gws-wiz-on-focus-serp"
+						},
+						{
+							"key": "xssi",
+							"value": "t"
+						},
+						{
+							"key": "gs_ri",
+							"value": "gws-wiz"
+						},
+						{
+							"key": "hl",
+							"value": "fr"
+						},
+						{
+							"key": "authuser",
+							"value": "0"
+						},
+						{
+							"key": "pq",
+							"value": "{{recherche}}"
+						},
+						{
+							"key": "psi",
+							"value": "dX_YYMyzLY2eUNDYsYAG.1624801144776"
+						},
+						{
+							"key": "ofp",
+							"value": "EAE"
+						},
+						{
+							"key": "dpr",
+							"value": "1"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

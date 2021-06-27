@@ -1,0 +1,164 @@
+{
+	"info": {
+		"_postman_id": "26da9be9-4ebb-4bbf-9064-fae06ca3ddcc",
+		"name": "TestAPI_Jenkins",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "New Request",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"//Contrôler le statut et le corps de la réponse\r",
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Body should contains : est natus enim\", function () {\r",
+							"    pm.expect(pm.response.text()).to.include(\"est natus enim\");\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://jsonplaceholder.typicode.com/posts/1/comments\n",
+					"protocol": "https",
+					"host": [
+						"jsonplaceholder",
+						"typicode",
+						"com"
+					],
+					"path": [
+						"posts",
+						"1",
+						"comments\n"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "https://jsonplaceholder.typicode.com/posts/1",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"pm.test(\"Response time is less than 300ms\", function () {\r",
+							"    pm.expect(pm.response.responseTime).to.be.below(300);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "https://jsonplaceholder.typicode.com/posts/1",
+					"protocol": "https",
+					"host": [
+						"jsonplaceholder",
+						"typicode",
+						"com"
+					],
+					"path": [
+						"posts",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Recherche_Google",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"//Contrôler le temps de la réponse\r",
+							"pm.test(\"Response time is less than 50ms\", function () {\r",
+							"    pm.expect(pm.response.responseTime).to.be.below(50);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{url}}/complete/search?q=toto&cp=0&client=desktop-gws-wiz-on-focus-serp&xssi=t&gs_ri=gws-wiz&hl=fr&authuser=0&pq=toto&psi=dX_YYMyzLY2eUNDYsYAG.1624801144776&ofp=EAE&dpr=1",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"complete",
+						"search"
+					],
+					"query": [
+						{
+							"key": "q",
+							"value": "toto"
+						},
+						{
+							"key": "cp",
+							"value": "0"
+						},
+						{
+							"key": "client",
+							"value": "desktop-gws-wiz-on-focus-serp"
+						},
+						{
+							"key": "xssi",
+							"value": "t"
+						},
+						{
+							"key": "gs_ri",
+							"value": "gws-wiz"
+						},
+						{
+							"key": "hl",
+							"value": "fr"
+						},
+						{
+							"key": "authuser",
+							"value": "0"
+						},
+						{
+							"key": "pq",
+							"value": "toto"
+						},
+						{
+							"key": "psi",
+							"value": "dX_YYMyzLY2eUNDYsYAG.1624801144776"
+						},
+						{
+							"key": "ofp",
+							"value": "EAE"
+						},
+						{
+							"key": "dpr",
+							"value": "1"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
