@@ -11,8 +11,17 @@ pipeline {
       }
       stage("Run newman") {
         steps {
-          bat 'newman run TestAPI_Jenkins.postman_collection.json -e QA.postman_environment.json'
-        }
-      }
-    }
-} 
+			script {
+				try {
+					bat 'newman run TestAPI_Jenkins.postman_collection.json -e QA.postman_environment.json -r cli,junit --reporter-junit-export newman.xml'
+					currentBuild.result = 'SUCCESS'
+				}catch (Exception ex) {
+					currentBuild.result = 'FAILURE'
+                }
+                junit 'newman.xml'
+				}
+			}
+		}
+	}
+ } 
+
