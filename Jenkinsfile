@@ -11,7 +11,7 @@ pipeline {
       }
       stage("Run newman") {
         steps {
-          sh 'newman run TestAPI_Jenkins.postman_collection.json -e QA.postman_environment.json'
+          bat 'newman run TestAPI_Jenkins.postman_collection.json -e QA.postman_environment.json'
         }
       }
     }
