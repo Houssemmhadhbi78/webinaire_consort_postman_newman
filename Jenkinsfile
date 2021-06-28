@@ -13,7 +13,7 @@ pipeline {
         steps {
 			script {
 				try {
-					bat 'newman run TestAPI_Jenkins.postman_collection.json -e QA.postman_environment.json -r cli,junit --reporter-junit-export newman.xml'
+					bat 'newman run --disable-unicode TestAPI_Jenkins.postman_collection.json -e QA.postman_environment.json -r cli,junit --reporter-junit-export newman.xml'
 					currentBuild.result = 'SUCCESS'
 				}catch (Exception ex) {
 					currentBuild.result = 'FAILURE'
