@@ -90,8 +90,8 @@
 					"script": {
 						"exec": [
 							"//Contrôler le temps de la réponse\r",
-							"pm.test(\"Response time is less than 50ms\", function () {\r",
-							"    pm.expect(pm.response.responseTime).to.be.below(50);\r",
+							"pm.test(\"Response time is less than 500ms\", function () {\r",
+							"    pm.expect(pm.response.responseTime).to.be.below(500);\r",
 							"});"
 						],
 						"type": "text/javascript"
